@@ -1,5 +1,12 @@
 #include "garbage.h"
 
+struct metablock{
+
+    int free;
+    size_t size;
+    struct metablock *next;
+
+};
 
 void *give_me_memory(size_t size)
 {
@@ -19,14 +26,20 @@ static  struct metablock *align(void *me){
 
 void give_me_info(void *me){
 
-    printf("Hi im a block of size = %d, i am in the address %p and my next point is %p\n", align(me)->size, align(me), align(me)->next);
+    printf("Hi im a block of size = %ld, i am in the address %p and my next point is %p\n", align(me)->size, align(me), align(me)->next);
+
+}
+
+size_t get_size_block(void *me){
+
+    return align(me)->size;
 
 }
 
 
 
 void free_all_memory(){
-    
+
     struct metablock *head = general_head;
     struct metablock *current = head;
 

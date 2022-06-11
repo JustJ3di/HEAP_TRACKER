@@ -7,13 +7,6 @@
 #include <assert.h>
 #include <string.h>
 
-struct metablock{
-
-    int free;
-    int size;
-    struct metablock *next;
-
-};
 
 #ifndef SIZE_INT
     #define SIZE_INT sizeof(int32_t)
@@ -39,6 +32,8 @@ void *give_me_memory(size_t size);
 void give_me_info(void *);
 
 struct metablock *give_me_free_block(size_t size);
+
+size_t get_size_block(void *);
 
 void free_all_memory();
 
