@@ -1,4 +1,5 @@
 #include "garbage.h"
+#include <string.h>
 
 typedef struct prova{int a;int *v;}P;
 

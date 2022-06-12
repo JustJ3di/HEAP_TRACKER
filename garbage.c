@@ -11,6 +11,7 @@ struct metablock{
 void *give_me_memory(size_t size)
 {
     struct metablock *new = malloc(SIZE_METABLOCK + size);
+    assert(new != NULL);
     new->free = 0;
     new->size = size;
     new->next = general_head;
@@ -37,6 +38,18 @@ size_t get_size_block(void *me){
 }
 
 
+void set_free(size_t size){
+
+    struct metablock *head = general_head;
+
+    while (head && (head->size != size))
+    {
+        head = head->next;
+    }
+    head->free = 1;
+    
+
+}
 
 void free_all_memory(){
 

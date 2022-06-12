@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
-#include <string.h>
 
 
 #ifndef SIZE_INT
@@ -28,7 +27,6 @@ static void *general_head = NULL;
 
 void *give_me_memory(size_t size);
 
-
 void give_me_info(void *);
 
 struct metablock *give_me_free_block(size_t size);
@@ -37,7 +35,8 @@ size_t get_size_block(void *);
 
 void free_all_memory();
 
-void *free_memory(void *);
+void set_free(size_t size);
 
+struct metablock *get_free(size_t size);
 
 #endif
