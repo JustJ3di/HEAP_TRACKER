@@ -27,7 +27,7 @@ static  struct metablock *align(void *me){
 
 void give_me_info(void *me){
 
-    printf("Hi im a block of size = %ld, i am in the address %p and my next point is %p\n", align(me)->size, align(me), align(me)->next);
+    printf("Hi im a block of size = %ld, i am in the address %p and my next point is %p .is it free ? (%d) \n", align(me)->size, align(me), align(me)->next, align(me)->free);
 
 }
 
@@ -37,17 +37,29 @@ size_t get_size_block(void *me){
 
 }
 
-
-void set_free(size_t size){
+void *get_free(size_t size){
 
     struct metablock *head = general_head;
 
-    while (head && (head->size != size))
+    while (head && (head->free != 1) && (head->size != size))
     {
         head = head->next;
     }
-    head->free = 1;
     
+    return ((void *)((struct metablock *)(head+1)));
+
+}
+
+void set_free(void *me){
+
+    if(me)
+    {
+        struct metablock *to_free = align(me);
+        to_free->free = 1;
+    }    
+    else{
+        return;
+    }
 
 }
 

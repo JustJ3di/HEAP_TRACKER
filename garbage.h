@@ -35,8 +35,9 @@ size_t get_size_block(void *);
 
 void free_all_memory();
 
-void set_free(size_t size);
+void set_free(void *);
 
-struct metablock *get_free(size_t size);
+void *get_free(size_t);
+
 
 #endif

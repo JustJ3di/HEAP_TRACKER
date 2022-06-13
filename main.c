@@ -15,9 +15,7 @@ int main(int argc, char const *argv[])
 
     give_me_info(c);
 
-    float *a = give_me_memory(SIZE_FLOAT);
 
-    give_me_info(a);
 
     P *n = give_me_memory(sizeof(P));
     n->a =10;
@@ -25,6 +23,29 @@ int main(int argc, char const *argv[])
 
     give_me_info(n);
     give_me_info(n->v);
+
+
+    int *vect = give_me_memory(SIZE_INT*1000);
+
+    for (size_t i = 0; i < 1000; i++)
+    {
+        vect[i] = i+3;
+    }
+    
+    give_me_info(vect);
+
+
+    float *a = give_me_memory(SIZE_FLOAT);
+
+    give_me_info(a);
+
+    set_free(a);
+
+    give_me_info(a);
+    
+    float *b = get_free(SIZE_FLOAT);
+
+    give_me_info(b);
 
     free_all_memory();
 
