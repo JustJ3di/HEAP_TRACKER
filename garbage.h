@@ -29,13 +29,13 @@ void *give_me_memory(size_t size);
 
 void give_me_info(void *);
 
-struct metablock *give_me_free_block(size_t size);
-
 size_t get_size_block(void *);
 
 void free_all_memory();
 
 void set_free(void *);
+
+void *get_memory(size_t size);
 
 void *get_free(size_t);
 

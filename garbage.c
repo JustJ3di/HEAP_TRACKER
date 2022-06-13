@@ -45,7 +45,7 @@ void *get_free(size_t size){
     {
         head = head->next;
     }
-    
+    head->free = 0;
     return ((void *)((struct metablock *)(head+1)));
 
 }
@@ -60,6 +60,20 @@ void set_free(void *me){
     else{
         return;
     }
+
+}
+
+void *get_memory(size_t size){
+
+    struct metablock *head = general_head;
+
+    while (head && (head->free != 1) && (head->size != size))
+        head = head->next;
+    
+    if(head)
+        return ((void *)((struct metablock *)(head+1)));
+    else
+        return give_me_memory(size);
 
 }
 
