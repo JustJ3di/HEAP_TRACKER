@@ -4,7 +4,8 @@
 typedef struct prova{int a;int *v;}P;
 
 int main(int argc, char const *argv[])
-{
+{   
+
     int *m = give_me_memory(SIZE_INT);
 
     *m = 10;
@@ -34,7 +35,7 @@ int main(int argc, char const *argv[])
     
     give_me_info(vect);
 
-
+    
     float *a = give_me_memory(SIZE_FLOAT);
 
     give_me_info(a);
@@ -42,10 +43,15 @@ int main(int argc, char const *argv[])
     set_free(a);
 
     give_me_info(a);
+
+    int *ba = give_me_memory(SIZE_INT*100);
+
+    give_me_info(ba);
     
-    float *b = get_free(SIZE_FLOAT);
+    float *b = get_memory(SIZE_FLOAT);
 
     give_me_info(b);
+
 
     free_all_memory();
 

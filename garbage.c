@@ -67,14 +67,18 @@ void *get_memory(size_t size){
 
     struct metablock *head = general_head;
 
-    while (head && (head->free != 1) && (head->size != size))
+    while (head && ((head->free == 0) && (head->size != size)))
         head = head->next;
     
-    if(head)
+    if(head->next)
+    {
+        head->free = 0;
         return ((void *)((struct metablock *)(head+1)));
-    else
-        return give_me_memory(size);
+    }
+    else{
 
+        return give_me_memory(size);
+    }
 }
 
 void free_all_memory(){
