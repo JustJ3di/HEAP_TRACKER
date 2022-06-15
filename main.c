@@ -44,13 +44,12 @@ int main(int argc, char const *argv[])
 
     give_me_info(a);
 
-    int *ba = give_me_memory(SIZE_INT*100);
+    char *ms = get_memory(SIZE_CHAR);
 
-    give_me_info(ba);
-    
-    float *b = get_memory(SIZE_FLOAT);
+    give_me_info(ms);
 
-    give_me_info(b);
+
+
 
 
     free_all_memory();

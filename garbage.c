@@ -37,17 +37,30 @@ size_t get_size_block(void *me){
 
 }
 
-void *get_free(size_t size){
+struct metablock *get_free(size_t size){
 
     struct metablock *head = general_head;
 
-    while (head && (head->free != 1) && (head->size != size))
+    while (head)
     {
+        if (head->size == size && head->free == 1)
+        {
+            break;
+        }
         head = head->next;
     }
-    head->free = 0;
-    return ((void *)((struct metablock *)(head+1)));
+    if (head)
+    {   
+        
+        return head;
+    }
+    else
+    {
+        return NULL;
+    }
 
+    return NULL;
+    
 }
 
 void set_free(void *me){
@@ -58,6 +71,7 @@ void set_free(void *me){
         to_free->free = 1;
     }    
     else{
+        printf("Give me a pointer that is alredy allocated with get_memory(size)")
         return;
     }
 
@@ -65,18 +79,15 @@ void set_free(void *me){
 
 void *get_memory(size_t size){
 
-    struct metablock *head = general_head;
+    struct metablock *new = get_free(size);
 
-    while (head && ((head->free == 0) && (head->size != size)))
-        head = head->next;
-    
-    if(head->next)
+    if(new)
     {
-        head->free = 0;
-        return ((void *)((struct metablock *)(head+1)));
+        new->free = 0;
+        return ((void *)((struct metablock *)(new+1)));
     }
-    else{
-
+    else
+    {
         return give_me_memory(size);
     }
 }

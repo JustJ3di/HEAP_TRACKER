@@ -35,9 +35,12 @@ void free_all_memory();
 
 void set_free(void *);
 
+
 void *get_memory(size_t size);
 
-void *get_free(size_t);
+
+//maybe this method is better if is static in garbace.c (private)
+struct metablock *get_free(size_t);
 
 
 #endif
