@@ -27,7 +27,9 @@ static  struct metablock *align(void *me){
 
 void give_me_info(void *me){
 
-    printf("Hi im a block of size = %ld, i am in the address %p and my next point is %p .is it free ? (%d) \n", align(me)->size, align(me), align(me)->next, align(me)->free);
+    printf("Hi im a block of size = %ld, \
+    i am in the address %p and my next point is %p .\
+    is it free ? (%d) \n", align(me)->size, align(me), align(me)->next, align(me)->free);
 
 }
 
@@ -71,7 +73,7 @@ void set_free(void *me){
         to_free->free = 1;
     }    
     else{
-        printf("Give me a pointer that is alredy allocated with get_memory(size)")
+        printf("Give me a pointer that is alredy allocated with get_memory(size)");
         return;
     }
 
