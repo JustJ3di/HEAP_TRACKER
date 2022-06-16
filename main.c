@@ -46,7 +46,13 @@ int main(int argc, char const *argv[])
 
     char *ms = get_memory(SIZE_CHAR);
 
+
+
     give_me_info(ms);
+
+
+    char *saaa = NULL;
+    set_free(saaa);
 
 
 

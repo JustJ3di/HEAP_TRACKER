@@ -39,7 +39,7 @@ size_t get_size_block(void *me){
 
 }
 
-struct metablock *get_free(size_t size){
+static struct metablock *get_free(size_t size){
 
     struct metablock *head = general_head;
 
@@ -73,7 +73,7 @@ void set_free(void *me){
         to_free->free = 1;
     }    
     else{
-        printf("Give me a pointer that is alredy allocated with get_memory(size)");
+        printf("Give me a pointer that is alredy allocated with get_memory(size) !\n");
         return;
     }
 

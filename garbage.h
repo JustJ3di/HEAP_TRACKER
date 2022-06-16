@@ -40,7 +40,7 @@ void *get_memory(size_t size);
 
 
 //maybe this method is better if is static in garbace.c (private)
-struct metablock *get_free(size_t);
+//struct metablock *get_free(size_t);
 
 
 #endif
