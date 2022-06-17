@@ -54,6 +54,7 @@ typedef struct proof{int a;int *v;}P;
 int main()
 {   
 
+    //I ask for memory at the heap
     int *m = get_memory(SIZE_INT);
 
 
@@ -84,7 +85,8 @@ int main()
     float *a = get_memory(SIZE_FLOAT);
 
     give_me_info(a);
-
+    
+    //set free a pointer of sizeof(float) so the next time i want use a pointer like it i already have it.
     set_free(a);
 
     give_me_info(a);
@@ -94,8 +96,10 @@ int main()
     give_me_info(ms);
 
     char *saaa = NULL;
+    //now a try to set free an invalid pointer
     set_free(saaa);
 
+    //i free all the memory
     free_all_memory();
 
     return 0;
