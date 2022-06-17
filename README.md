@@ -40,3 +40,75 @@ return ret;
 Anywhere in your programs you can call the ```get_size()``` function on a preallocated pointer with get_memory(size) to find out the size of the memory used.
 To this size of course must be added the size of the struct previously described.
 You can also print all the info about the block with the function ```give_me_info(void *)```
+At the and of you programs call the funcion ``` free_all_memory()```, so in this way
+all the memory that you use are free like garbage collecion.
+
+### example
+Can be good to write code allocating memory this way, since each allocation is part of a unique linked list that can then be memory freed at the end of your programs.
+```c
+#include "garbage.h"
+#include <string.h>
+
+typedef struct proof{int a;int *v;}P;
+
+int main()
+{   
+
+    int *m = give_me_memory(SIZE_INT);
+
+
+    *m = 10;
+    printf("%d\n", *m);
+
+    char *c = give_me_memory(strlen("ciao")+1);
+    strcpy(c,"ciao");
+
+    give_me_info(c);
+
+
+
+    P *n = give_me_memory(sizeof(P));
+    n->a =10;
+    n->v = give_me_memory(SIZE_INT);
+
+    give_me_info(n);
+    give_me_info(n->v);
+
+
+    int *vect = give_me_memory(SIZE_INT*1000);
+
+    for (size_t i = 0; i < 1000; i++)
+    {
+        vect[i] = i+3;
+    }
+    
+    give_me_info(vect);
+
+    
+    float *a = give_me_memory(SIZE_FLOAT);
+
+    give_me_info(a);
+
+    set_free(a);
+
+    give_me_info(a);
+
+    char *ms = get_memory(SIZE_CHAR);
+
+
+
+    give_me_info(ms);
+
+
+    char *saaa = NULL;
+    set_free(saaa);
+
+
+
+
+
+    free_all_memory();
+
+    return 0;
+}
+```

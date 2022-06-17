@@ -1,7 +1,7 @@
 #include "garbage.h"
 #include <string.h>
 
-typedef struct prova{int a;int *v;}P;
+typedef struct proof{int a;int *v;}P;
 
 int main()
 {   
