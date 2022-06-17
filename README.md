@@ -65,15 +65,12 @@ int main()
 
     give_me_info(c);
 
-
-
     P *n = give_me_memory(sizeof(P));
     n->a =10;
     n->v = give_me_memory(SIZE_INT);
 
     give_me_info(n);
     give_me_info(n->v);
-
 
     int *vect = give_me_memory(SIZE_INT*1000);
 
@@ -83,8 +80,7 @@ int main()
     }
     
     give_me_info(vect);
-
-    
+ 
     float *a = give_me_memory(SIZE_FLOAT);
 
     give_me_info(a);
@@ -95,17 +91,10 @@ int main()
 
     char *ms = get_memory(SIZE_CHAR);
 
-
-
     give_me_info(ms);
-
 
     char *saaa = NULL;
     set_free(saaa);
-
-
-
-
 
     free_all_memory();
 
