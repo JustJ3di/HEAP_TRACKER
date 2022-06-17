@@ -35,3 +35,7 @@ To the user I return only the next pointer to the structure, which is the one ac
 void *ret = (struct metablock *)(new + 1);
 return ret;
 ```
+
+### Features
+Anywhere in your programs you can call the get_size() function on a preallocated pointer with get_memory(size) to find out the size of the memory used.
+To this size of course must be added the size of the structra previously described.

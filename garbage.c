@@ -8,6 +8,8 @@ struct metablock{
 
 };
 
+static void *general_head = NULL;
+
 void *give_me_memory(size_t size)
 {
     struct metablock *new = malloc(SIZE_METABLOCK + size);

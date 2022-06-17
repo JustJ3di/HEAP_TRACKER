@@ -3,7 +3,7 @@
 
 typedef struct prova{int a;int *v;}P;
 
-int main(int argc, char const *argv[])
+int main()
 {   
 
     int *m = give_me_memory(SIZE_INT);

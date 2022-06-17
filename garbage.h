@@ -23,7 +23,6 @@
     #define SIZE_METABLOCK sizeof(struct metablock)
 #endif 
 
-static void *general_head = NULL;
 
 void *give_me_memory(size_t size);
 
