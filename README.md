@@ -54,25 +54,25 @@ typedef struct proof{int a;int *v;}P;
 int main()
 {   
 
-    int *m = give_me_memory(SIZE_INT);
+    int *m = get_memory(SIZE_INT);
 
 
     *m = 10;
     printf("%d\n", *m);
 
-    char *c = give_me_memory(strlen("ciao")+1);
+    char *c = get_memory(strlen("ciao")+1);
     strcpy(c,"ciao");
 
     give_me_info(c);
 
-    P *n = give_me_memory(sizeof(P));
+    P *n = get_memory(sizeof(P));
     n->a =10;
-    n->v = give_me_memory(SIZE_INT);
+    n->v = get_memory(SIZE_INT);
 
     give_me_info(n);
     give_me_info(n->v);
 
-    int *vect = give_me_memory(SIZE_INT*1000);
+    int *vect = get_memory(SIZE_INT*1000);
 
     for (size_t i = 0; i < 1000; i++)
     {
@@ -80,8 +80,8 @@ int main()
     }
     
     give_me_info(vect);
- 
-    float *a = give_me_memory(SIZE_FLOAT);
+
+    float *a = get_memory(SIZE_FLOAT);
 
     give_me_info(a);
 
