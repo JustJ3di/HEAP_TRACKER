@@ -8,6 +8,7 @@ int main(int argc, char const *argv[])
 
     int *m = give_me_memory(SIZE_INT);
 
+
     *m = 10;
     printf("%d\n", *m);
 
