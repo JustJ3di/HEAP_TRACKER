@@ -37,5 +37,6 @@ return ret;
 ```
 
 ### Features
-Anywhere in your programs you can call the get_size() function on a preallocated pointer with get_memory(size) to find out the size of the memory used.
-To this size of course must be added the size of the structra previously described.
+Anywhere in your programs you can call the ```get_size()``` function on a preallocated pointer with get_memory(size) to find out the size of the memory used.
+To this size of course must be added the size of the struct previously described.
+You can also print all the info about the block with the function ```give_me_info(void *)```
