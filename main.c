@@ -56,17 +56,17 @@ int main()
     char *saaa = NULL;
     set_free(saaa);
 
-    vect = get_memory(SIZE_INT*1000);
+    int *vec = get_memory(SIZE_INT*1000);
 
     for (size_t i = 0; i < 1000; i++)
     {
-        vect[i] = i*2 + i;
+        vec[i] = i*2 + i;
     }
     
 
+    give_me_info(vec);
+
     give_me_info(vect);
-
-
 
     set_free(vect);
 
